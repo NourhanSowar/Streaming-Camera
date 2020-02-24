@@ -17,7 +17,7 @@ client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 client.bind(("", UDP_BroadCast_PORT ))
 
-#addr = ("127.0.0.1", 65534)
+
 Buffer_size = 512
 width = 640
 height = 480
@@ -25,8 +25,6 @@ code = b'start'
 num_of_chunks = width * height * 3 / Buffer_size
 
 if __name__ == '__main__':
-    #s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    #s.bind(addr)
     while True:
         chunks = []
         start = False
