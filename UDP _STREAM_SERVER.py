@@ -20,7 +20,7 @@ server.settimeout(0.2)
 server.bind(("", UDP_SERVER_PORT))
 message = "done".encode('utf-8')
 
-#addr = ("127.0.0.1", 65534)
+
 Buffer_size = 512
 width = 640
 height = 480
@@ -32,7 +32,7 @@ code = ('start' + (Buffer_size - len(code)) * 'a').encode('utf-8')
 
 
 if __name__ == '__main__':
-    #s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+ 
     while(cap.isOpened()):
         ret, frame = cap.read()
         if ret:
@@ -40,11 +40,7 @@ if __name__ == '__main__':
             data = frame.tostring()
             for i in range(0, len(data), Buffer_size):
                 server.sendto(data[i:i+Buffer_size],  ('<broadcast>', UDP_BroadCast_PORT))
-            # cv.imshow('send', frame)
-            # if cv.waitKey(1) & 0xFF == ord('q'):
-                # break
+          
         else:
             break
-    # s.close()
-    # cap.release()
-    # cv.destroyAllWindows()
+  
